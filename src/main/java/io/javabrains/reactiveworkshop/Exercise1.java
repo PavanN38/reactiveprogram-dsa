@@ -1,13 +1,19 @@
 package io.javabrains.reactiveworkshop;
 
+import reactor.core.publisher.Mono;
+
+import java.io.IOException;
+
 public class Exercise1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Use StreamSources.intNumbersStream() and StreamSources.userStream()
 
         // Print all numbers in the intNumbersStream stream
         // TODO: Write code here
+        Mono.just(1).log().subscribe();
+
 
         // Print numbers from intNumbersStream that are less than 5
         // TODO: Write code here
@@ -24,7 +30,8 @@ public class Exercise1 {
 
         // Print first names in userStream for users that have IDs from number stream
         // TODO: Write code here
-
+        System.out.println("Press a key to end");
+        System.in.read();
     }
 
 }
