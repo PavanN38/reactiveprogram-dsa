@@ -80,8 +80,23 @@ public class LinkedList {
             tail = null;
         }
 
-        return pre;
+        return temp;
     }
+//prepand when no items, multiple items
 
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+        length++;
+
+    }
 
 }
