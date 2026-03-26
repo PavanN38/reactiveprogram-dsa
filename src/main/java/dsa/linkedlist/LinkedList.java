@@ -99,4 +99,97 @@ public class LinkedList {
 
     }
 
+    //remove first item and return, when we have one  item, multiple and null
+
+    public Node removeFirst() {
+        if (length == 0) return null;
+
+        //set a temp variable as we have to return it
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+
+        //when we have one item
+        if (length == 0) {
+            tail.next = null;
+        }
+        return temp;
+    }
+
+    //get node at an index, we cannot get index before 0 and greater than length
+    public Node get(int index) {
+
+        if (index < 0 || index >= length) return null;
+
+        //return
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public boolean set(int index, int value) {
+        //variable where we set value
+        Node temp = get(index);
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean insert(int index, int value) {
+
+        if (index < 0 || index > length) return false;
+
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+
+    public Node remove(int index) {
+        if (index < 0 || index >= length) return null;
+        if (index == 0) return removeFirst();
+        if (index == length - 1) return removeLast();
+        Node pre = get(index - 1);
+        Node temp = pre.next;
+        pre.next = temp.next;
+        temp.next = null;
+        length--;
+        return temp;
+
+    }
+
+    //reverse inplace
+
+    public void revese() {
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.next;
+        Node before = null;
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+
+
+    }
+
 }
