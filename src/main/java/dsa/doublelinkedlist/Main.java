@@ -10,6 +10,9 @@ public class Main {
         myDoubleLinkedList.getLength();
         myDoubleLinkedList.append(17);
         myDoubleLinkedList.printDoubleLinkedList();
+        System.out.println("after addition appending ");
+        myDoubleLinkedList.removeLast();
+        myDoubleLinkedList.printDoubleLinkedList();
 
         //System.out.println(myLinkedList.removeLast().value);
     }
