@@ -12,6 +12,8 @@ public class Main {
         myDoubleLinkedList.printDoubleLinkedList();
         System.out.println("after addition appending ");
         myDoubleLinkedList.removeLast();
+        myDoubleLinkedList.prepend(1);
+        myDoubleLinkedList.removeFirst();
         myDoubleLinkedList.printDoubleLinkedList();
 
         //System.out.println(myLinkedList.removeLast().value);
