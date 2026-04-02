@@ -1,21 +1,21 @@
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Testing {
 
     public static void main(String[] args) {
 
-        String word = "GOOGLE";
+        List<Integer> list = List.of(1, 2, 3, 2, 4, 1, 5);
 
-        HashMap<String, Integer> wordCount = new HashMap<>();
+        Map<Integer, Long> collect = list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(collect);
 
-        wordCount.put(null, 11);
-        wordCount.put("A", 10);
-        wordCount.put("B", 10);
-        wordCount.put("C", 10);
-        wordCount.put("D", 10);
-
-        wordCount.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
-
+        List list1 = collect.entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .map(e -> e.getKey()).toList();
+        System.out.println(list1);
 
     }
 
